@@ -39,8 +39,8 @@ class _MyAvailabilityScreenState extends State<MyAvailabilityScreen> {
   ];
   late int selectedDay = -1;
   List<DayAvailableModel> days = [
-    DayAvailableModel(day: "SUN", status: "empty"),
-    DayAvailableModel(day: "MON", status: "selected"),
+    DayAvailableModel(day: "SUN", status: "selected"),
+    DayAvailableModel(day: "MON", status: "empty"),
     DayAvailableModel(day: "TUE", status: "empty"),
     DayAvailableModel(day: "WED", status: "empty"),
     DayAvailableModel(day: "THU", status: "empty"),
@@ -58,6 +58,15 @@ class _MyAvailabilityScreenState extends State<MyAvailabilityScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: secondaryColor,
+          ),
+        ),
         title: Text(
           'My Availability',
           style: TextStyle(
