@@ -3,6 +3,7 @@ import 'package:sanai3ey/modules/welcome/loading-page.dart';
 import 'package:sanai3ey/shared/constants/constants.dart';
 import '../../../shared/components/ink_well.dart';
 import '../../customer/editProfile/reset_password.dart';
+import '../availability/my_availability_screen.dart';
 import '../notification_screen.dart';
 import 'editprofilecrafs.dart';
 
@@ -160,7 +161,7 @@ class ProfilePageCrafs extends StatelessWidget {
                   text: 'Calendar',
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
-                      builder: (_) => const ResetPassword(),
+                      builder: (_) => const MyAvailabilityScreen(),
                     ),);
                   },
                   prefixIcon: Icon(
