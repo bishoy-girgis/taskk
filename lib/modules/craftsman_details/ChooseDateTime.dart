@@ -18,6 +18,7 @@ class _ChooseDateTimeState extends State<ChooseDateTime> {
   late ConfettiController _controllerCenter;
   late List<DateTime?> _dates = [];
   bool selected = false;
+  bool comment = true;
   late int _selectedIndex = -1;
 
   List<TimeCraftManModel> times = [
@@ -129,7 +130,9 @@ class _ChooseDateTimeState extends State<ChooseDateTime> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
+                          selected = true;
                           if (times[index].status != "booked") {
+                            comment = true;
                             setState(() {
                               if (_selectedIndex != index) {
                                 if (_selectedIndex != -1) {
@@ -137,9 +140,13 @@ class _ChooseDateTimeState extends State<ChooseDateTime> {
                                 }
                                 _selectedIndex = index;
                                 times[_selectedIndex].status = "selected";
-                                selected = true;
                               }
                             });
+                          }else {
+                            setState(() {
+
+                            });
+                            comment = false;
                           }
                         },
                         child: Container(
@@ -174,7 +181,7 @@ class _ChooseDateTimeState extends State<ChooseDateTime> {
               selected == true
                   ? Center(
                       child: Text(
-                        "Time Selected Successfully..",
+                        comment==true ? "Time Selected Successfully.." : "Sorry This Time Booked !" ,
                         style: TextStyle(
                             fontFamily: "Inter",
                             fontSize: 17.sp,
