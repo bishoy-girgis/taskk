@@ -53,7 +53,7 @@ class AppRoutes {
       case Routes.bookingPage:
         return MaterialPageRoute(builder: (context) => const BookingPage());
       case Routes.chooseCraftsMan:
-        return MaterialPageRoute(builder: (context) => const ChooseCraftsManPage());
+        return MaterialPageRoute(builder: (context) =>  ChooseCraftsManPage());
       case Routes.serviceCregory :
         return MaterialPageRoute(builder: (context) => const ServiceCregory());
       case Routes.crafsHomePage :

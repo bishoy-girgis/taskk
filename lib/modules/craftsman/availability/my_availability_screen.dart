@@ -16,7 +16,6 @@ class MyAvailabilityScreen extends StatefulWidget {
 }
 
 class _MyAvailabilityScreenState extends State<MyAvailabilityScreen> {
-  late int _selectedIndex = -1;
 
   List<TimeCraftManModel> times = [
     TimeCraftManModel(time: "08:00 AM", status: "selected"),
@@ -37,7 +36,6 @@ class _MyAvailabilityScreenState extends State<MyAvailabilityScreen> {
     TimeCraftManModel(time: "11:00 PM", status: "empty"),
     TimeCraftManModel(time: "12:00 AM", status: "empty"),
   ];
-  late int selectedDay = -1;
   List<DayAvailableModel> days = [
     DayAvailableModel(day: "SUN", status: "selected"),
     DayAvailableModel(day: "MON", status: "empty"),
@@ -100,12 +98,11 @@ class _MyAvailabilityScreenState extends State<MyAvailabilityScreen> {
                 return InkWell(
                   onTap: () {
                     setState(() {
-                      if (selectedDay != index) {
-                        if (selectedDay != -1) {
-                          days[selectedDay].status = "empty";
-                        }
-                        selectedDay = index;
-                        days[selectedDay].status = "selected";
+                      if (days[index].status == "selected") {
+                          days[index].status = "empty";
+                        }else{
+                        days[index].status = "selected";
+
                       }
                     });
                   },
@@ -156,13 +153,14 @@ class _MyAvailabilityScreenState extends State<MyAvailabilityScreen> {
                   return InkWell(
                     onTap: () {
                       setState(() {
-                        if (_selectedIndex != index) {
-                          if (_selectedIndex != -1) {
-                            times[_selectedIndex].status = "empty";
+                        setState(() {
+                          if (times[index].status == "selected") {
+                            times[index].status = "empty";
+                          }else{
+                            times[index].status = "selected";
+
                           }
-                          _selectedIndex = index;
-                          times[_selectedIndex].status = "selected";
-                        }
+                        });
                       });
                     },
                     child: Container(
